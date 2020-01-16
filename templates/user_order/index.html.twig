@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="columns">
+        <div class="column is-3"></div>
+        <div class="column is-6">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">Passer commande</p>
+                </header>
+                <div class="card-content">
+                    {% for message in app.flashes('success') %}
+                        <div class="notification is-success is-light">
+                            <i class="fas fa-check-circle"></i> Ok, {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    {% for message in app.flashes('info') %}
+                        <div class="notification is-info is-light">
+                            <i class="fas fa-info-circle"></i> {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    {% for message in app.flashes('error') %}
+                        <div class="notification is-danger is-light">
+                            <i class="fas fa-exclamation-triangle"></i> Erreur, {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    {% block card_content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <div class="column is-3"></div>
+    </div>
+{% endblock %}

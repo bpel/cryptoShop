@@ -1,0 +1,66 @@
+{% extends 'user_order/index.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block card_content %}
+
+    {% include 'user_order/steps_order.html.twig' %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <hr>
+    <button type="submit" id="button-order" class="button is-primary">Confirmer les produits</button>
+    {{ form_end(form) }}
+
+    {% block script %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script>
+            const productsNb = $('.form-group .form-group-user-order-products').length;
+            $("#widgets-counter-products").val(productsNb);
+            $('#add-product').click(function () {
+                const indexIllustration = +$('#widgets-counter-products').val();
+
+                const tmpIllustration = $('#user_order_products_products').data('prototype').replace(/__name__/g, indexIllustration);
+
+                $('#user_order_products').append(tmpIllustration);
+                $('#widgets-counter-products').val(indexIllustration + 1);
+            });
+        </script>
+
+    {% endblock %}
+
+{% endblock %}
+
+{% block _user_order_products_products_widget %}
+    <button type="button" class="button btn btn-primary btn-form-edit-add-element" id="add-product">Ajouter un produit</button>
+    {{ form_widget(form) }}
+    <input type="hidden" id="widgets-counter-products" value="0">
+{% endblock %}
+
+{% block _user_order_products_products_entry_widget %}
+    <div class="product-row">
+        <div class="columns">
+            <div class="column">
+                <div class="field">
+                    <div class="control">
+                        {{ form_widget(form.product) }}
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="field">
+                    <div class="control">
+                        {{  form_widget(form.quantity) }}
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="control"><button class="btn btn-danger delete-button-product button is-danger" type="button" data-action="delete" data-target="#{{ id }}">X</button></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block _user_order_products_products_entry_row %}
+    {{ form_widget(form) }}
+{% endblock %}

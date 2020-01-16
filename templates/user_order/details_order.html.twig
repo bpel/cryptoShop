@@ -1,0 +1,64 @@
+{% extends 'user_order/index.html.twig' %}
+
+{% block card_content %}
+
+    {% include 'user_order/steps_order.html.twig' %}
+    <h1 class="title has-text-centered">Récapitulatif</h1>
+
+    <p class="is-size-5 has-text-weight-semibold">Votre adresse de livraison</p>
+    <table class="table">
+        <tr>
+            <td>{{ userOrder.lastname|upper }} {{ userOrder.firstname|capitalize }}</td>
+        </tr>
+        <tr>
+            <td>{{ userOrder.adress }} {{ userOrder.postcode }} {{ userOrder.city|capitalize }}</td>
+        </tr>
+    </table>
+
+    <p class="is-size-5 has-text-weight-semibold">Produits commandés</p>
+    <table class="table table is-fullwidth">
+        <thead>
+            <tr>
+                <th>Nom du produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set total = 0 %}
+            {% for productOrder in productsOrder %}
+            <tr>
+                {% set totalRow = productOrder.price*productOrder.quantityOrder %}
+                <th>{{ productOrder.product.name }}</th>
+                <th>{{ productOrder.price }}€</th>
+                <th>{{ productOrder.quantityOrder }}</th>
+                <th>{{ totalRow }}€</th>
+                {% set total = total + totalRow %}
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Total: </th>
+                <th>{{ total }}€</th>
+            </tr>
+        </tfoot>
+    </table>
+
+    <div class="field is-grouped">
+        <p class="control">
+            <a class="button is-success" href="{{ path('user_order_pay', {'paymentId': userOrder.paiementId}) }}">
+                <i class="fas fa-check-circle"></i> Valider la commande et payer
+            </a>
+        </p>
+        <p class="control">
+            <a class="button is-warning" href="{{ path('user_order_edit', {'paymentId': userOrder.paiementId}) }}">
+                <i class="fas fa-edit"></i> Modifier la commande
+            </a>
+        </p>
+    </div>
+
+{% endblock %}

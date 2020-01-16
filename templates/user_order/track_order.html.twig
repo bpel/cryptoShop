@@ -1,0 +1,69 @@
+{% extends 'user_order/index.html.twig' %}
+
+{% block card_content %}
+
+    <ul class="steps is-centered has-content-centered is-large">
+        <li class="steps-segment">
+            <a href="#" class="has-text-dark">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fas fa-dolly-flatbed"></i>
+            </span>
+          </span>
+                <div class="steps-content">
+                    <p class="heading">Commande créer</p>
+                    <p class="is-size-7">date</p>
+                </div>
+            </a>
+        </li>
+        <li class="steps-segment">
+            <a href="#" class="has-text-dark">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fas fa-clock"></i>
+            </span>
+          </span>
+                <div class="steps-content">
+                    <p class="heading">PAIEMENT EN ATTENTE</p>
+                    <p class="is-size-7">date</p>
+                </div>
+            </a>
+        </li>
+        <li class="steps-segment">
+            <a href="#" class="has-text-dark">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fas fa-money-check-edit-alt"></i>
+            </span>
+          </span>
+                <div class="steps-content">
+                    <p class="heading">PAIEMENT valide</p>
+                    <p class="is-size-7">date</p>
+                </div>
+            </a>
+        </li>
+        <li class="steps-segment is-active has-gaps">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-truck"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Commande expediée</p>
+                <p class="is-size-7">date</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker is-hollow">
+          <span class="icon">
+            <i class="fa fa-check"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Commande Livré</p>
+                <p class="is-size-7">date</p>
+            </div>
+        </li>
+    </ul>
+
+{% endblock %}

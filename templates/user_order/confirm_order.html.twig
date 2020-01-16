@@ -1,0 +1,14 @@
+{% extends 'user_order/index.html.twig' %}
+
+{% block card_content %}
+
+    {% include 'user_order/steps_order.html.twig' %}
+
+    <h1 class="title has-text-centered">Merci !</h1>
+    <div class="container">
+        <p class="has-text-justified">
+            Vous avez confirmé le paiement de votre commande. Nous allons traité votre commande dans les plus bref délais.
+            Pour suivre son état rendez-vous sur le <a href="{{ path('user_order_status', {'paymentId': '12'}) }}">suivis en ligne.</a>
+        </p>
+    </div>
+{% endblock %}

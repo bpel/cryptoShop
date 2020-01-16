@@ -1,0 +1,35 @@
+.img-services {
+    height: 80px;
+    margin-bottom: 1px;
+}
+
+.title-services {
+    margin-top: 0;
+}
+
+.text-services {
+    font-size: 12pt;
+}
+
+.select {
+    max-width: 100%;
+    width: 100%;
+    font-size: 1rem;
+    height: 2.25em;
+}
+
+#add-product {
+    margin-bottom: 1rem;
+}
+
+.product-row:first-of-type {
+    margin-top: 0.5rem;
+}
+
+#button-order {
+    margin-top: 1rem;
+}
+
+.button > .fas {
+    margin-right: 0.2rem;
+}

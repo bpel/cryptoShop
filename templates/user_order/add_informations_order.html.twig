@@ -1,0 +1,67 @@
+{% extends 'user_order/index.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block card_content %}
+
+    {% include 'user_order/steps_order.html.twig' %}
+
+    {{ form_start(form) }}
+    <div class="columns">
+        <div class="column">
+            <div class="field">
+                <label class="label">Nom</label>
+                <div class="control">
+                    {{ form_row(form.lastname) }}
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="field">
+                <label class="label">Prénom</label>
+                <div class="control">
+                    {{ form_row(form.firstname) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="is-divider" data-content="Adresse de livraison"></div>
+    <div class="columns">
+        <div class="column is-4">
+            <div class="field">
+                <label class="label">Adresse</label>
+                <div class="control">
+                    {{ form_row(form.adress) }}
+                </div>
+            </div>
+        </div>
+        <div class="column is-2">
+            <div class="field">
+                <label class="label">Code postal</label>
+                <div class="control">
+                    {{ form_row(form.postcode) }}
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="field">
+                <label class="label">Ville</label>
+                <div class="control">
+                    {{ form_row(form.city) }}
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="field">
+                <label class="label">Pays</label>
+                <div class="control">
+                    {{ form_row(form.country) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <button type="submit" id="button-order" class="button is-primary">Commander</button>
+    {{ form_end(form) }}
+
+{% endblock %}
