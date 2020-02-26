@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+
+        <p>Navbar</p><br>
+
+        <div class="columns">
+            <div class="column is-one-third">
+                <article class="card ls-feature-card">
+                    <div class="card-content has-text-centered">
+                        <figure class="services is-inline-block">
+                            <img src="{{ asset("build/img/privacy.png")}}" alt="services-privacy">
+                        </figure>
+                        <div class="media-content has-text-centered">
+                            <h3 class="title is-5 has-text-weight-bold"><a href="/" class="has-text-dark" title="">User privacy</a></h3>
+                            <p class="is-size-6">privacy service text</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="column is-one-third">
+                <article class="card ls-feature-card">
+                    <div class="card-content has-text-centered">
+                        <figure class="services is-inline-block">
+                            <img src="{{ asset("build/img/quality.png")}}" alt="services-quality">
+                        </figure>
+                        <div class="media-content has-text-centered">
+                            <h3 class="title is-5 has-text-weight-bold"><a href="/" class="has-text-dark" title="">Product quality</a></h3>
+                            <p class="is-size-6">quality service text</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="column is-one-third">
+                <article class="card ls-feature-card">
+                    <div class="card-content has-text-centered">
+                        <figure class="services is-inline-block">
+                            <img src="{{ asset("build/img/quick.png")}}" alt="services-quick">
+                        </figure>
+                        <div class="media-content has-text-centered">
+                            <h3 class="title is-5 has-text-weight-bold"><a href="/" class="has-text-dark" title="">Fast shipping</a></h3>
+                            <p class="is-size-6">shipping service text</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Order tracking</h4>
+            </div>
+            <div class="card-content">
+                <div class="container">
+                    <table class="table is-fullwidth">
+                        <thead><tr><th>Date</th><th>Status</th></tr></thead>
+                        <tbody>
+                        <tr>
+                            <td>28/12/2019 17:19</td>
+                            <td>Order recorded</td>
+                        </tr>
+                        <tr>
+                            <td>28/12/2019 17:19</td>
+                            <td>Awating paiement validation</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
