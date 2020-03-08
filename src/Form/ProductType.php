@@ -19,7 +19,7 @@ class ProductType extends AbstractType
         $builder
             ->add('product', EntityType::class, [
                 'class' => Product::class,
-                'choice_label' => 'name',
+                'choice_label' => 'LabelProductChoice',
                 'expanded'     => false,
                 'multiple'     => false,
                 'label'        => false,
@@ -28,6 +28,7 @@ class ProductType extends AbstractType
                     'placeholder' => 'Produit'
                 ],
             ])
+            ->add('price')
             ->add('quantity', IntegerType::class, [
                 'required' => false,
                 'constraints' => [

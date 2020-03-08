@@ -10,6 +10,8 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 class UserOrderType extends AbstractType
 {
@@ -34,21 +36,21 @@ class UserOrderType extends AbstractType
                 'label' => false,
                 'attr' => [
                     'class' => 'input',
-                    'placeholder' => 'Adresse postale'
+                    'placeholder' => 'Adresse postale',
                 ],
             ])
             ->add('postcode', IntegerType::class, [
                 'label' => false,
                 'attr' => [
                     'class' => 'input',
-                    'placeholder' => 'Code postal'
+                    'placeholder' => 'Code postal',
                 ],
             ])
             ->add('city', TextType::class, [
                 'label' => false,
                 'attr' => [
                     'class' => 'input',
-                    'placeholder' => 'Ville'
+                    'placeholder' => 'Ville',
                 ],
             ])
             ->add('country', EntityType::class, [
