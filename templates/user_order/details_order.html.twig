@@ -50,14 +50,7 @@
 
     <div class="field is-grouped">
         <p class="control">
-            <a class="button is-success" href="{{ path('user_order_pay', {'paymentId': userOrder.paiementId}) }}">
-                <i class="fas fa-check-circle"></i> Valider la commande et payer
-            </a>
-        </p>
-        <p class="control">
-            <a class="button is-warning" href="{{ path('user_order_edit', {'paymentId': userOrder.paiementId}) }}">
-                <i class="fas fa-edit"></i> Modifier la commande
-            </a>
+            <a class="button is-primary" href="{{ path('user_order_pay', {'paymentId': userOrder.paiementId}) }}">Payer</a>
         </p>
     </div>
 

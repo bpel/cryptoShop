@@ -1,8 +1,9 @@
-.img-services {
+.services > img {
     height: 80px;
     margin-bottom: 1px;
 }
 
+/*
 .title-services {
     margin-top: 0;
 }
@@ -33,3 +34,4 @@
 .button > .fas {
     margin-right: 0.2rem;
 }
+*/

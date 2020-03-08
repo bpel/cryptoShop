@@ -2,6 +2,8 @@
 
 {% block card_content %}
 
+    {% if order is defined %}
+
     <ul class="steps is-centered has-content-centered is-large">
         <li class="steps-segment">
             <a href="#" class="has-text-dark">
@@ -65,5 +67,7 @@
             </div>
         </li>
     </ul>
+
+    {% endif %}
 
 {% endblock %}

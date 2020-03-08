@@ -1,10 +1,62 @@
-<ul class="steps is-centered has-content-centered is-large">
-    {% if orderStep is defined and orderStep == 'products' %}
-    <li class="steps-segment is-active has-gaps">
-{% else %}
-    <li class="steps-segment">
-        {% endif %}
-        <a href="#" class="has-text-dark">
+{% if orderStep is defined and orderStep == 'products' %}
+    <ul class="steps is-centered has-content-centered is-large">
+        <li class="steps-segment is-active">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-cowbell-more"></i>
+            </span>
+          </span>
+                <div class="steps-content">
+                    <p class="heading">Produits</p>
+                </div>
+        </li>
+        <li class="steps-segment">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-user"></i>
+            </span>
+          </span>
+                <div class="steps-content">
+                    <p class="heading">Informations</p>
+                </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-list-ol"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Récapitulatif</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-money-check-edit-alt"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Paiement</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fa fa-check"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Confirmation</p>
+            </div>
+        </li>
+    </ul>
+{% endif %}
+
+
+{% if orderStep is defined and orderStep == 'informations' %}
+    <ul class="steps is-centered has-content-centered is-large">
+        <li class="steps-segment">
           <span class="steps-marker">
             <span class="icon">
               <i class="fa fa-cowbell-more"></i>
@@ -13,14 +65,8 @@
             <div class="steps-content">
                 <p class="heading">Produits</p>
             </div>
-        </a>
-    </li>
-    {% if orderStep is defined and orderStep == 'informations' %}
-    <li class="steps-segment is-active has-gaps">
-        {% else %}
-    <li class="steps-segment">
-        {% endif %}
-        <a href="#" class="has-text-dark">
+        </li>
+        <li class="steps-segment is-active">
           <span class="steps-marker">
             <span class="icon">
               <i class="fa fa-user"></i>
@@ -29,48 +75,264 @@
             <div class="steps-content">
                 <p class="heading">Informations</p>
             </div>
-        </a>
-    </li>
-    {% if orderStep is defined and orderStep == 'details' %}
-    <li class="steps-segment is-active has-gaps">
-        {% else %}
-    <li class="steps-segment">
-        {% endif %}
+        </li>
+        <li class="steps-segment">
         <span class="steps-marker">
           <span class="icon">
             <i class="fas fa-list-ol"></i>
           </span>
         </span>
-        <div class="steps-content is-active has-gaps">
-            <p class="heading">Récapitulatif</p>
-        </div>
-    </li>
-    {% if orderStep is defined and orderStep == 'payment' %}
-    <li class="steps-segment is-active has-gaps">
-        {% else %}
-    <li class="steps-segment">
-        {% endif %}
+            <div class="steps-content">
+                <p class="heading">Récapitulatif</p>
+            </div>
+        </li>
+        <li class="steps-segment">
         <span class="steps-marker">
           <span class="icon">
             <i class="fas fa-money-check-edit-alt"></i>
           </span>
         </span>
-        <div class="steps-content is-active has-gaps">
-            <p class="heading">Paiement</p>
-        </div>
-    </li>
-    {% if orderStep is defined and orderStep == 'confirm' %}
-    <li class="steps-segment is-active has-gaps">
-        {% else %}
-    <li class="steps-segment">
-        {% endif %}
+            <div class="steps-content">
+                <p class="heading">Paiement</p>
+            </div>
+        </li>
+        <li class="steps-segment">
         <span class="steps-marker">
           <span class="icon">
             <i class="fa fa-check"></i>
           </span>
         </span>
-        <div class="steps-content">
-            <p class="heading">Confirmation</p>
-        </div>
-    </li>
-</ul>
+            <div class="steps-content">
+                <p class="heading">Confirmation</p>
+            </div>
+        </li>
+    </ul>
+{% endif %}
+
+
+{% if orderStep is defined and orderStep == 'details' %}
+    <ul class="steps is-centered has-content-centered is-large">
+        <li class="steps-segment">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-cowbell-more"></i>
+            </span>
+          </span>
+            <div class="steps-content">
+                <p class="heading">Produits</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-user"></i>
+            </span>
+          </span>
+            <div class="steps-content">
+                <p class="heading">Informations</p>
+            </div>
+        </li>
+        <li class="steps-segment is-active">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-list-ol"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Récapitulatif</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-money-check-edit-alt"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Paiement</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fa fa-check"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Confirmation</p>
+            </div>
+        </li>
+    </ul>
+{% endif %}
+
+{% if orderStep is defined and orderStep == 'payment' %}
+    <ul class="steps is-centered has-content-centered is-large">
+        <li class="steps-segment">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-cowbell-more"></i>
+            </span>
+          </span>
+            <div class="steps-content">
+                <p class="heading">Produits</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-user"></i>
+            </span>
+          </span>
+            <div class="steps-content">
+                <p class="heading">Informations</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-list-ol"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Récapitulatif</p>
+            </div>
+        </li>
+        <li class="steps-segment is-active">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-money-check-edit-alt"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Paiement</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fa fa-check"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Confirmation</p>
+            </div>
+        </li>
+    </ul>
+{% endif %}
+
+{% if orderStep is defined and orderStep == 'confirm' %}
+    <ul class="steps is-centered has-content-centered is-large">
+        <li class="steps-segment">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-cowbell-more"></i>
+            </span>
+          </span>
+            <div class="steps-content">
+                <p class="heading">Produits</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-user"></i>
+            </span>
+          </span>
+            <div class="steps-content">
+                <p class="heading">Informations</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-list-ol"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Récapitulatif</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-money-check-edit-alt"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Paiement</p>
+            </div>
+        </li>
+        <li class="steps-segment is-active">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fa fa-check"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Confirmation</p>
+            </div>
+        </li>
+    </ul>
+{% endif %}
+
+{#
+{{ path('user_order_complete', {'paymentId' : paymentId}) }}
+
+    <ul class="steps is-centered has-content-centered is-large">
+        <li class="steps-segment is-active">
+            <a href="#" class="has-text-dark">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-cowbell-more"></i>
+            </span>
+          </span>
+                <div class="steps-content">
+                    <p class="heading">Produits</p>
+                </div>
+            </a>
+        </li>
+        <li class="steps-segment">
+            <a href="" class="has-text-dark">
+          <span class="steps-marker">
+            <span class="icon">
+              <i class="fa fa-user"></i>
+            </span>
+          </span>
+                <div class="steps-content">
+                    <p class="heading">Informations</p>
+                </div>
+            </a>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-list-ol"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Récapitulatif</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fas fa-money-check-edit-alt"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Paiement</p>
+            </div>
+        </li>
+        <li class="steps-segment">
+        <span class="steps-marker">
+          <span class="icon">
+            <i class="fa fa-check"></i>
+          </span>
+        </span>
+            <div class="steps-content">
+                <p class="heading">Confirmation</p>
+            </div>
+        </li>
+    </ul>
+
+#}

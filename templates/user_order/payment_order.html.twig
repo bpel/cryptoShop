@@ -4,17 +4,19 @@
 
     {% include 'user_order/steps_order.html.twig' %}
 
-    <p class="title has-text-centered">Total commande: {{ totalProductsEUR }}€ / {{ totalProductsXMR }} XMR</p>
+    {% set totalProductsXMR = totalProductsEUR/moneroPrice %}
+
+    <p class="title has-text-centered">Total commande: {{ totalProductsEUR }}€</p>
 
     <div class="field">
         <div class="control">
             <label class="label">Adresse Monero de paiement</label>
             <div class="field has-addons">
                 <div class="control is-expanded">
-                    <input class="input" type="text" value="44AFFq5kSiGBoZ4NMDwYtN18obc8AemS33DBLWs3H7otXft3XjrpDtQGv7SqSsaBYBb98uNbr2VBBEt7f2wfn3RVGQBEP3A" readonly>
+                    <input class="input" type="text" id="inputXMRAdress" value="{{ xmrAdress }}" readonly>
                 </div>
                 <div class="control">
-                    <button type="submit" class="button is-dark"><i class="fas fa-copy"></i>Copier</button>
+                    <button onclick="copy('inputXMRAdress')" class="button is-dark"><i class="fas fa-copy"></i>Copier</button>
                 </div>
             </div>
         </div>
@@ -25,10 +27,10 @@
         <label class="label">Paiement ID</label>
         <div class="field has-addons">
             <div class="control is-expanded">
-                <input class="input" type="text" value="{{ userOrder.paiementId }}" readonly>
+                <input class="input" type="text" id="inputPaiementId" value="{{ userOrder.paiementId }}" readonly>
             </div>
             <div class="control">
-                <button type="submit" class="button is-dark"><i class="fas fa-copy"></i>Copier</button>
+                <button onclick="copy('inputPaiementId')" class="button is-dark"><i class="fas fa-copy"></i>Copier</button>
             </div>
         </div>
     </div>
@@ -39,11 +41,11 @@
         <label class="label">Montant en Monero à envoyer</label>
         <div class="field has-addons">
             <div class="control is-expanded">
-                <input class="input" type="text" value="{{ totalProductsXMR }}" readonly>
+                <input class="input" type="text" id="inputXMRPrice" value="{{ totalProductsXMR|round(4, 'floor') }}" readonly>
                 <p class="help is-dark">1 XMR = {{ moneroPrice }}€</p>
             </div>
             <div class="control">
-                <button type="submit" class="button is-dark"><i class="fas fa-copy"></i>Copier</button>
+                <button onclick="copy('inputXMRPrice')" class="button is-dark"><i class="fas fa-copy"></i>Copier</button>
             </div>
         </div>
     </div>
@@ -58,5 +60,12 @@
             </a>
         </p>
     </div>
+
+    <script>
+        function copy(id) {
+            document.getElementById(id).select();
+            document.execCommand('copy');
+        }
+    </script>
 
 {% endblock %}
