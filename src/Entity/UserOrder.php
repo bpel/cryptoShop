@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserOrderRepository")
@@ -25,6 +26,7 @@ class UserOrder
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Assert\NotNull()
      */
     private $firstname;
 
@@ -50,18 +52,29 @@ class UserOrder
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="userOrders")
+     * @Assert\NotBlank()
      */
     private $country;
 
     /**
-     * @ORM\ManyToMany(targetEntity="UserOrderStatus", mappedBy="userOrder")
+     * @ORM\ManyToMany(targetEntity="UserOrderStatus")
      */
     private $orderStatuses;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Product", inversedBy="userOrders")
+     */
+    private $products;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $IsLock;
+
     public function __construct()
     {
-        $this->status = new ArrayCollection();
         $this->orderStatuses = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -74,7 +87,7 @@ class UserOrder
         return $this->paiementId;
     }
 
-    public function setPaiementId(string $paiementId): self
+    public function setPaiementId(?string $paiementId): self
     {
         $this->paiementId = $paiementId;
 
@@ -86,7 +99,7 @@ class UserOrder
         return $this->firstname;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setFirstname(?string $firstname): self
     {
         $this->firstname = $firstname;
 
@@ -98,7 +111,7 @@ class UserOrder
         return $this->lastname;
     }
 
-    public function setLastname(string $lastname): self
+    public function setLastname(?string $lastname): self
     {
         $this->lastname = $lastname;
 
@@ -110,7 +123,7 @@ class UserOrder
         return $this->adress;
     }
 
-    public function setAdress(string $adress): self
+    public function setAdress(?string $adress): self
     {
         $this->adress = $adress;
 
@@ -122,7 +135,7 @@ class UserOrder
         return $this->postcode;
     }
 
-    public function setPostcode(string $postcode): self
+    public function setPostcode(?string $postcode): self
     {
         $this->postcode = $postcode;
 
@@ -134,7 +147,7 @@ class UserOrder
         return $this->city;
     }
 
-    public function setCity(string $city): self
+    public function setCity(?string $city): self
     {
         $this->city = $city;
 
@@ -177,6 +190,46 @@ class UserOrder
             $this->orderStatuses->removeElement($orderStatus);
             $orderStatus->removeUserOrder($this);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Product[]
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): self
+    {
+        if (!$this->products->contains($product)) {
+            $this->products[] = $product;
+            $product->addUserOrder($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): self
+    {
+        if ($this->products->contains($product)) {
+            $this->products->removeElement($product);
+            $product->removeUserOrder($this);
+        }
+
+        return $this;
+    }
+
+    public function getIsLock(): ?bool
+    {
+        return $this->IsLock;
+    }
+
+    public function setIsLock(bool $IsLock): self
+    {
+        $this->IsLock = $IsLock;
 
         return $this;
     }

@@ -23,7 +23,7 @@ class UserOrderDetail
     private $userOrder;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="userOrderDetails", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="quantityOrder", cascade={"persist"})
      * @Assert\NotNull
      */
     private $product;
@@ -42,30 +42,6 @@ class UserOrderDetail
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getUserOrder(): ?UserOrder
-    {
-        return $this->userOrder;
-    }
-
-    public function setUserOrder(?UserOrder $userOrder): self
-    {
-        $this->userOrder = $userOrder;
-
-        return $this;
-    }
-
-    public function getProduct(): ?Product
-    {
-        return $this->product;
-    }
-
-    public function setProduct(?Product $product): self
-    {
-        $this->product = $product;
-
-        return $this;
     }
 
     public function getQuantityOrder(): ?int
@@ -88,6 +64,30 @@ class UserOrderDetail
     public function setPrice(float $price): self
     {
         $this->price = $price;
+
+        return $this;
+    }
+
+    public function getUserOrder(): ?UserOrder
+    {
+        return $this->userOrder;
+    }
+
+    public function setUserOrder(?UserOrder $userOrder): self
+    {
+        $this->userOrder = $userOrder;
+
+        return $this;
+    }
+
+    public function getProduct(): ?Product
+    {
+        return $this->product;
+    }
+
+    public function setProduct(?Product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }

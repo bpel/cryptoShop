@@ -90,6 +90,10 @@ class Product
         return $this;
     }
 
+    public function getLabelProductChoice(): ?string {
+        return $this->getName() . " " . $this->getPrice() . "€";
+    }
+
     /**
      * @return Collection|UserOrder[]
      */
